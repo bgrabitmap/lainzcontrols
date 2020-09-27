@@ -16,7 +16,7 @@ object frmDemo: TfrmDemo
     StyleNormal.Rounding = 10
     StyleNormal.PenColor = clSilver
     StyleNormal.FillColor = clWhite
-    StyleNormal.BorderWidth = 1
+    StyleNormal.BorderWidth = 2
     StyleNormal.BorderStyle = [rrTopLeftSquare, rrBottomRightSquare]
     StyleHover.Rounding = 10
     StyleHover.PenColor = 12615680

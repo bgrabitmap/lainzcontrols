@@ -268,6 +268,8 @@ end;
 procedure TLZRoundedButton.Paint;
 var
   textStyle: TTextStyle;
+  offset: single;
+  FCurrentStyle: TLZRoundedButtonStyle;
 begin
   inherited Paint;
   if (ClientWidth <> FBGRA.Width) or (ClientHeight <> FBGRA.Height) then
@@ -275,38 +277,24 @@ begin
   FBGRA.FillTransparent;
   // Colors, BorderWidth, Fill and Pen color, BorderStyle
   case FState of
-    bsNormal: FBGRA.RoundRectAntialias(trunc(FStyleNormal.BorderWidth / 2),
-        trunc(FStyleNormal.FBorderWidth / 2),
-        trunc(Width - 1 - (FStyleNormal.FBorderWidth / 2)), trunc(Height - 1 -
-        (FStyleNormal.FBorderWidth / 2)),
-        FStyleNormal.Rounding, FStyleNormal.Rounding,
-        FStyleNormal.PenColor, FStyleNormal.BorderWidth, FStyleNormal.FillColor,
-        FStyleNormal.BorderStyle);
-
-    bsHover: FBGRA.RoundRectAntialias(trunc(FStyleHover.BorderWidth / 2),
-        trunc(FStyleHover.FBorderWidth / 2),
-        trunc(Width - 1 - (FStyleHover.FBorderWidth / 2)), trunc(Height - 1 -
-        (FStyleHover.FBorderWidth / 2)),
-        FStyleHover.Rounding, FStyleHover.Rounding,
-        FStyleHover.PenColor, FStyleHover.BorderWidth, FStyleHover.FillColor,
-        FStyleHover.BorderStyle);
-
-    bsActive: FBGRA.RoundRectAntialias(trunc(FStyleActive.BorderWidth /
-        2), trunc(FStyleActive.FBorderWidth / 2),
-        trunc(Width - 1 - (FStyleActive.FBorderWidth / 2)), trunc(Height - 1 -
-        (FStyleActive.FBorderWidth / 2)),
-        FStyleActive.Rounding, FStyleActive.Rounding,
-        FStyleActive.PenColor, FStyleActive.BorderWidth, FStyleActive.FillColor,
-        FStyleActive.BorderStyle);
-
-    bsDisabled: FBGRA.RoundRectAntialias(trunc(FStyleDisabled.BorderWidth /
-        2), trunc(FStyleDisabled.FBorderWidth / 2),
-        trunc(Width - 1 - (FStyleDisabled.FBorderWidth / 2)), trunc(Height - 1 -
-        (FStyleDisabled.FBorderWidth / 2)),
-        FStyleDisabled.Rounding, FStyleDisabled.Rounding,
-        FStyleDisabled.PenColor, FStyleDisabled.BorderWidth, FStyleDisabled.FillColor,
-        FStyleDisabled.BorderStyle);
+    bsNormal: FCurrentStyle := FStyleNormal;
+    bsHover: FCurrentStyle := FStyleHover;
+    bsActive: FCurrentStyle := FStyleActive;
+    bsDisabled: FCurrentStyle := FStyleDisabled;
   end;
+
+  if (trunc(FCurrentStyle.BorderWidth) mod 2 = 0) and (frac(FCurrentStyle.BorderWidth)=0) then
+    offset := 0.5
+  else
+    offset := 0;
+
+  FBGRA.RoundRectAntialias(trunc(FCurrentStyle.BorderWidth /
+        2)-offset, trunc(FCurrentStyle.FBorderWidth / 2)-offset,
+        trunc(Width - (FCurrentStyle.FBorderWidth / 2))-offset, trunc(Height -
+        (FCurrentStyle.FBorderWidth / 2))-offset,
+        FCurrentStyle.Rounding, FCurrentStyle.Rounding,
+        FCurrentStyle.PenColor, FCurrentStyle.BorderWidth, FCurrentStyle.FillColor,
+        FCurrentStyle.BorderStyle);
 
   FBGRA.Draw(Canvas, 0, 0, False);
   // Caption

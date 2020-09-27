@@ -15,7 +15,7 @@ interface
 
 uses
   Classes, SysUtils, LResources, Forms, Controls, Graphics, Dialogs,
-  BGRABitmap, BGRABitmapTypes;
+  BGRABitmap, BGRABitmapTypes, Math;
 
 type
   TLZRoundedPanel = class;
@@ -158,12 +158,17 @@ procedure TLZRoundedPanel.Paint;
 var
   bgra: TBGRABitmap;
   textStyle: TTextStyle;
+  offset: single;
 begin
   bgra := TBGRABitmap.Create(Width, Height, BGRAPixelTransparent);
+  if (trunc(FBorderWidth) mod 2 = 0) and (frac(FBorderWidth)=0) then
+    offset := 0.5
+  else
+    offset := 0;
   try
     // Colors, BorderWidth, Fill and Pen color, BorderStyle
-    bgra.RoundRectAntialias(trunc(FBorderWidth / 2), trunc(FBorderWidth / 2), trunc(Width - 1 -
-      (FBorderWidth / 2)), trunc(Height - 1 - (FBorderWidth / 2)), FRounding, FRounding,
+    bgra.RoundRectAntialias(trunc(FBorderWidth / 2)-offset, trunc(FBorderWidth / 2)-offset, trunc(Width -
+      (FBorderWidth / 2))-offset, trunc(Height - (FBorderWidth / 2))-offset, FRounding, FRounding,
       FPenColor, FBorderWidth, FFillColor, FBorderStyle);
     // OnPaintEvent
     if Assigned(FOnPaintEvent) then
