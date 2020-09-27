@@ -1,0 +1,58 @@
+object frmDemo: TfrmDemo
+  Left = 368
+  Height = 240
+  Top = 119
+  Width = 446
+  Caption = 'LZRoundedPanel'
+  ClientHeight = 240
+  ClientWidth = 446
+  Color = 15000804
+  LCLVersion = '2.1.0.0'
+  object LZRoundedPanel2: TLZRoundedPanel
+    Left = 8
+    Height = 184
+    Top = 48
+    Width = 429
+    Rounding = 10
+    PenColor = clTeal
+    FillColor = clWhite
+    BorderWidth = 3
+    BorderStyle = []
+    Caption = 'Click on a tab to start'
+    Font.Height = 25
+    Font.Style = [fsItalic]
+    Anchors = [akTop, akLeft, akRight, akBottom]
+  end
+  object LZRoundedPanel1: TLZRoundedPanel
+    Cursor = crHandPoint
+    Left = 8
+    Height = 32
+    Top = 8
+    Width = 72
+    Rounding = 20
+    PenColor = 8421440
+    FillColor = clMoneyGreen
+    BorderWidth = 1
+    BorderStyle = [rrTopRightSquare, rrBottomRightSquare]
+    Caption = 'Animals'
+    Font.Color = clBlack
+    Font.Style = [fsBold]
+    OnClick = LZRoundedPanel1Click
+  end
+  object LZRoundedPanel3: TLZRoundedPanel
+    Cursor = crHandPoint
+    Left = 79
+    Height = 32
+    Top = 8
+    Width = 72
+    Rounding = 20
+    PenColor = 8404992
+    FillColor = clTeal
+    BorderWidth = 1
+    BorderStyle = [rrTopLeftSquare, rrBottomLeftSquare]
+    Caption = 'Plants'
+    Font.Color = clWhite
+    Font.Style = [fsBold]
+    OnClick = LZRoundedPanel3Click
+  end
+end

@@ -1,0 +1,72 @@
+object frmDemo: TfrmDemo
+  Left = 368
+  Height = 240
+  Top = 119
+  Width = 320
+  Caption = 'LZRoundedButton'
+  ClientHeight = 240
+  ClientWidth = 320
+  Color = clWhite
+  LCLVersion = '2.1.0.0'
+  object LZRoundedButton1: TLZRoundedButton
+    Left = 8
+    Height = 72
+    Top = 8
+    Width = 159
+    StyleNormal.Rounding = 10
+    StyleNormal.PenColor = clSilver
+    StyleNormal.FillColor = clWhite
+    StyleNormal.BorderWidth = 1
+    StyleNormal.BorderStyle = [rrTopLeftSquare, rrBottomRightSquare]
+    StyleHover.Rounding = 10
+    StyleHover.PenColor = 12615680
+    StyleHover.FillColor = clWhite
+    StyleHover.BorderWidth = 3
+    StyleHover.BorderStyle = [rrTopLeftSquare, rrTopRightSquare, rrBottomRightSquare, rrBottomLeftSquare]
+    StyleActive.Rounding = 10
+    StyleActive.PenColor = 12615680
+    StyleActive.FillColor = clSilver
+    StyleActive.BorderWidth = 5
+    StyleActive.BorderStyle = [rrTopLeftSquare, rrTopRightSquare, rrBottomRightSquare, rrBottomLeftSquare]
+    StyleDisabled.Rounding = 10
+    StyleDisabled.PenColor = clGray
+    StyleDisabled.FillColor = clSilver
+    StyleDisabled.BorderWidth = 1
+    StyleDisabled.BorderStyle = [rrTopLeftSquare, rrTopRightSquare, rrBottomRightSquare, rrBottomLeftSquare]
+    Caption = 'Hello World'
+    Font.Height = 20
+    Font.Style = [fsItalic]
+    ParentFont = False
+  end
+  object LZRoundedButton2: TLZRoundedButton
+    Left = 8
+    Height = 72
+    Top = 88
+    Width = 159
+    StyleNormal.Rounding = 10
+    StyleNormal.PenColor = clSilver
+    StyleNormal.FillColor = clWhite
+    StyleNormal.BorderWidth = 1
+    StyleNormal.BorderStyle = [rrTopLeftSquare, rrBottomRightSquare]
+    StyleHover.Rounding = 10
+    StyleHover.PenColor = 12615680
+    StyleHover.FillColor = clWhite
+    StyleHover.BorderWidth = 3
+    StyleHover.BorderStyle = [rrTopLeftSquare, rrTopRightSquare, rrBottomRightSquare, rrBottomLeftSquare]
+    StyleActive.Rounding = 10
+    StyleActive.PenColor = 12615680
+    StyleActive.FillColor = clSilver
+    StyleActive.BorderWidth = 5
+    StyleActive.BorderStyle = [rrTopLeftSquare, rrTopRightSquare, rrBottomRightSquare, rrBottomLeftSquare]
+    StyleDisabled.Rounding = 10
+    StyleDisabled.PenColor = clGray
+    StyleDisabled.FillColor = clSilver
+    StyleDisabled.BorderWidth = 1
+    StyleDisabled.BorderStyle = [rrTopLeftSquare, rrTopRightSquare, rrBottomRightSquare, rrBottomLeftSquare]
+    Caption = 'Disabled'
+    Enabled = False
+    Font.Height = 20
+    Font.Style = [fsItalic]
+    ParentFont = False
+  end
+end
